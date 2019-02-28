@@ -35,6 +35,8 @@ export default {
            this.getRightData(this.$route.params.id)
        }
     },
+    //添加watch监听的原因是：当分类页面挂载时只发了一次http请求，在点击左边的类别时，路由变化但是不会再调用getRightData的方法导致右边数据无法更新，
+    //添加watch属性后，当路由发生变化时调用getRightData方法获取右边数据
     watch:{
         $route(to,from){
             if(to.params.id){
